@@ -72,6 +72,15 @@ class ProjectViewController: UIViewController, UIImagePickerControllerDelegate, 
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController?.popViewController(animated: true)
     }
+    
+    
+    @IBAction func deleteTapped(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(project!)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

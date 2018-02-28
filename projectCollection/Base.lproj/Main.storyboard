@@ -74,6 +74,7 @@
                                 <state key="normal" title="Delete"/>
                                 <connections>
                                     <action selector="addTapped:" destination="nTY-fS-3h9" eventType="touchUpInside" id="czv-oh-xN6"/>
+                                    <action selector="deleteTapped:" destination="nTY-fS-3h9" eventType="touchUpInside" id="7rR-HP-wu9"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Kf-YI-WpU">
