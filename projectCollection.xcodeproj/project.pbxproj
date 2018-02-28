@@ -46,7 +46,6 @@
 		A94CC36E2045F6290080A9E3 = {
 			isa = PBXGroup;
 			children = (
-				A94CC3932046017B0080A9E3 /* ProjectViewController.swift */,
 				A94CC3792045F6290080A9E3 /* projectCollection */,
 				A94CC3782045F6290080A9E3 /* Products */,
 			);
@@ -67,6 +66,7 @@
 				A94CC3912045FD8E0080A9E3 /* SANY0006.JPG */,
 				A94CC37A2045F6290080A9E3 /* AppDelegate.swift */,
 				A94CC37C2045F6290080A9E3 /* ViewController.swift */,
+				A94CC3932046017B0080A9E3 /* ProjectViewController.swift */,
 				A94CC37E2045F6290080A9E3 /* Main.storyboard */,
 				A94CC3842045F62A0080A9E3 /* Assets.xcassets */,
 				A94CC3862045F62A0080A9E3 /* LaunchScreen.storyboard */,
