@@ -9,19 +9,33 @@
 import UIKit
 
 class ProjectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var projectImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var addUpdateButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var imagePicker = UIImagePickerController()
+    var project : Project? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imagePicker.delegate = self
-       
+        
+        if project != nil {
+            print("we have a game!")
+            projectImageView.image = UIImage(data: project!.image!)
+            titleTextField.text = project?.title
+            addUpdateButton.setTitle("Update", for: .normal)
+        } else {
+            print("we have no game")
+            deleteButton.isHidden = true
+        }
+        
     }
-
+    
     @IBAction func photosTapped(_ sender: Any) {
         
         imagePicker.sourceType = .photoLibrary
@@ -40,11 +54,21 @@ class ProjectViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        //coredata context
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let project = Project(context: context)
-        project.title = titleTextField.text
-        project.image = UIImagePNGRepresentation(projectImageView.image!)
+        if project != nil {
+            print("we have a game!")
+            project!.title = titleTextField.text
+            project!.image = UIImagePNGRepresentation(projectImageView.image!)
+            
+        } else {
+            print("we have no game")
+            //coredata context
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let project = Project(context: context)
+            project.title = titleTextField.text
+            project.image = UIImagePNGRepresentation(projectImageView.image!)
+        }
+        
+        
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController?.popViewController(animated: true)
     }
@@ -53,7 +77,7 @@ class ProjectViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-
-
-
+    
+    
+    
 }
