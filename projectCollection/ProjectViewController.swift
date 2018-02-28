@@ -46,6 +46,7 @@ class ProjectViewController: UIViewController, UIImagePickerControllerDelegate, 
         project.title = titleTextField.text
         project.image = UIImagePNGRepresentation(projectImageView.image!)
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationController?.popViewController(animated: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
